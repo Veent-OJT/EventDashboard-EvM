@@ -37,105 +37,120 @@
   }
 </script>
 
-<div class="min-h-screen">
+<div class="min-h-screen bg-white">
   <!-- Header -->
-  <header class="header">
-    <div class="container mx-auto px-4 py-3">
+  <header class="header fixed top-0 left-0 right-0 bg-white z-50">
+    <div class="container mx-auto px-4">
       <div class="flex justify-between items-center">
         <!-- Left Section -->
-        <div class="flex items-center space-x-8">
-          <img src="/logo/Veent-red-logo.png" alt="Veent Logo" class="h-6.6 w-12 cursor-pointer">
+        <div class="flex items-center space-x-4 md:space-x-8">
+          <img src="/logo/Veent-red-logo.png" alt="Veent Logo" class="h-5 w-8 md:h-6 md:w-10 cursor-pointer">
           <nav class="nav-links">
             <a href="#" class="nav-link text-red-500">
-              <img src="/icons/home-icon.png" alt="Home Icon">
-              <span>Home</span>
+              <img src="/icons/home-icon.png" alt="Home Icon" class="h-4 w-4 md:h-5 md:w-5">
+              <span class="hidden md:inline">Home</span>
             </a>
             <a href="#" class="nav-link text-gray-600">
-              <img src="/icons/wallet-icon.png" alt="Wallet Icon">
-              <span>Wallet</span>
+              <img src="/icons/wallet-icon.png" alt="Wallet Icon" class="h-4 w-4 md:h-5 md:w-5">
+              <span class="hidden md:inline">Wallet</span>
             </a>
           </nav>
         </div>
 
         <!-- Right Section -->
-        <div class="flex items-center space-x-4">
-          <button class="p-2 hover:bg-gray-100 rounded-full">
-            <img src="/icons/search-icon.png" alt="Search Icon" class="h-5 w-5 cursor-pointer">
+        <div class="flex items-center space-x-2 md:space-x-4">
+          <button class="p-1 md:p-2 hover:bg-gray-100 rounded-full">
+            <img src="/icons/search-icon.png" alt="Search Icon" class="h-3 w-3 md:h-4 md:w-4 cursor-pointer">
           </button>
-          <button class="p-2 hover:bg-gray-100 rounded-full">
-            <img src="/icons/notification-icon.png" alt="Notification-Icon" class="h-5 w-5 cursor-pointer">
+          <button class="p-1 md:p-2 hover:bg-gray-100 rounded-full">
+            <img src="/icons/notification-icon.png" alt="Notification-Icon" class="h-3 w-3 md:h-4 md:w-4 cursor-pointer">
           </button>
-          <img src="/Group 9968.png" alt="Profile-Icon" class="h-8 w-8 cursor-pointer">
+          <img src="/Group 9968.png" alt="Profile-Icon" class="h-5 w-5 md:h-6 md:w-6 cursor-pointer">
         </div>
       </div>
     </div>
   </header>
 
-  <main class="container mx-auto px-4 py-6">
+  <main class="container mx-auto px-4 pt-16 pb-6">
     <!-- Event Card -->
     <EventCard {isModalOpen} setIsModalOpen={(value) => isModalOpen = value} />
 
     <!-- Navigation Tabs -->
     <NavigationTabs {navigateTo} />
 
-    <hr class="w-300 border-t border-gray-300 ml-6">
+    <hr class="w-full border-t border-gray-200 my-6">
 
-    <!-- Staff Management Section -->
-    <div class="rounded-lg p-6">
-      <div class="flex justify-between items-center mb-6 border p-4 border-gray-200 rounded-lg">
-        <div>
-          <h2 class="text-lg font-bold ml-3">Staff List</h2>
-          <p class="text-gray-600 ml-3">Your Staff History</p>
+    <!--Staff Management Section-->
+    <div class="bg-white rounded-lg shadow-sm">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-4 md:p-6 border-b border-gray-200">
+        <div class="mb-4 md:mb-0">
+          <h2 class="text-xl font-bold">Staff List</h2>
+          <p class="text-gray-600 text-sm">Your Staff History</p>
         </div>
-        <button class="bg-red-500 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-red-600 transition-colors">
+        <button class="w-full md:w-auto bg-red-500 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 hover:bg-red-600 transition-colors">
           <img src="/icons/new-invite-icon.png" alt="FullList" class="h-5 w-5">
           <span>Invite Staff</span>
         </button>
       </div>
 
       <!-- Staff Table -->
-      <div class="border border-gray-200 rounded-lg">
-        <div class="grid grid-cols-3 gap-4 p-4 border-b border-gray-200 font-medium text-poppins">
-          <div class="ml-8">Name</div>
-          <div class="ml-8">Role</div>
-        </div>
-
-        <!-- Pending Staff -->
-        {#each pendingStaffMembers as staff}
-          <div class="staff-row">
-            <div class="staff-name">{staff.name}</div>
-            <div class="staff-role">
-              <span class="px-3 py-1 mt-4 rounded-full text-sm text-white {staff.role === 'Admin' ? 'bg-yellow-500' : 'bg-blue-500'}">
-                {staff.role}
-              </span>
-            </div>
-            <div class="staff-actions">
-              <button class="decline">
-                Decline
-              </button>
-              <button class="accept">
-                Accept
-              </button>
-            </div>
-          </div>
-        {/each}
-
-        <!-- Active Staff -->
-        {#each staffMembers as staff}
-          <div class="staff-row">
-            <div class="staff-name">{staff.name}</div>
-            <div class="staff-role">
-              <span class="px-3 py-1 mt-4 rounded-full text-sm text-white {staff.role === 'Admin' ? 'bg-yellow-500' : 'bg-blue-500'}">
-                {staff.role}
-              </span>
-            </div>
-            <div class="more-options">
-              <button class="p-1 hover:bg-gray-100 rounded">
-                <img src="/icons/menu-dots-icon.png" alt="More Options" class="h-5 w-5 text-gray-500">
-              </button>
-            </div>
-          </div>
-        {/each}
+      <div class="overflow-x-auto mt-4 px-4"> <!-- Added mt-4 and px-4 classes for margin-top and padding -->
+        <table class="w-full min-w-[600px]">
+          <thead>
+            <tr class="text-left border-b border-gray-200">
+              <th class="p-4 font-medium text-gray-700">Name</th>
+              <th class="p-4 font-medium text-gray-700">Role</th>
+              <th class="p-4 font-medium text-gray-700"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Pending Staff -->
+            {#each pendingStaffMembers as staff}
+              <tr class="border-b border-gray-200">
+                <td class="p-4">
+                  <span class="text-sm md:text-base">{staff.name}</span>
+                </td>
+                <td class="p-4">
+                  <span class="inline-block px-3 py-1 text-xs md:text-sm rounded-full text-white {staff.role === 'Admin' ? 'bg-yellow-500' : 'bg-blue-500'}">
+                    {staff.role}
+                  </span>
+                </td>
+                <td class="p-4">
+                  <div class="flex justify-end gap-2">
+                    <button class="text-xs md:text-sm px-3 py-1 border border-red-500 text-red-500 rounded hover:bg-red-50">
+                      Decline
+                    </button>
+                    <button class="text-xs md:text-sm px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600">
+                      Accept
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            {/each}
+            
+            <!-- Active Staff -->
+            {#each staffMembers as staff}
+              <tr class="border-b border-gray-200">
+                <td class="p-4">
+                  <span class="text-sm md:text-base">{staff.name}</span>
+                </td>
+                <td class="p-4">
+                  <span class="inline-block px-3 py-1 text-xs md:text-sm rounded-full text-white {staff.role === 'Admin' ? 'bg-yellow-500' : 'bg-blue-500'}">
+                    {staff.role}
+                  </span>
+                </td>
+                <td class="p-4">
+                  <div class="flex justify-end">
+                    <button class="p-1 hover:bg-gray-100 rounded">
+                      <img src="/icons/menu-dots-icon.png" alt="More Options" class="h-5 w-5 text-gray-500">
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            {/each}
+            
+          </tbody>
+        </table>
       </div>
     </div>
   </main>
