@@ -79,8 +79,8 @@
     <NavigationTabs {navigateTo} />
 
     <hr class="w-full border-t border-gray-200 my-6">
-
-    <!--Staff Management Section-->
+    
+      <!--Staff Management Section-->
     <div class="bg-white rounded-lg shadow-sm">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-4 md:p-6 border-b border-gray-200">
         <div class="mb-4 md:mb-0">
