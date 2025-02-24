@@ -3,7 +3,7 @@
   import { pendingStaffMembers, staffMembers } from '$lib/data/dataList';
   import EventCard from '$lib/components/EventCard.svelte';
   import NavigationTabs from '$lib/components/NavigationTabs.svelte';
-  import '../styles/staffTable.css'; // Corrected import path
+  import '../styles/staffTable.css';
 
   let searchQuery = '';
   let staffFilter = 'All Staffs';
