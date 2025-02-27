@@ -37,43 +37,12 @@
   }
 </script>
 
-<div class="min-h-screen bg-white">
-  <!-- Header -->
-  <header class="header fixed top-0 left-0 right-0 bg-white z-50">
-    <div class="container mx-auto px-4">
-      <div class="flex justify-between items-center">
-        <!-- Left Section -->
-        <div class="flex items-center space-x-4 md:space-x-8">
-          <img src="/logo/Veent-red-logo.png" alt="Veent Logo" class="h-5 w-8 md:h-6 md:w-10 cursor-pointer">
-          <nav class="nav-links">
-            <a href="#" class="nav-link text-red-500">
-              <img src="/icons/home-icon.png" alt="Home Icon" class="h-4 w-4 md:h-5 md:w-5">
-              <span class="hidden md:inline">Home</span>
-            </a>
-            <a href="#" class="nav-link text-gray-600">
-              <img src="/icons/wallet-icon.png" alt="Wallet Icon" class="h-4 w-4 md:h-5 md:w-5">
-              <span class="hidden md:inline">Wallet</span>
-            </a>
-          </nav>
-        </div>
+<div class="min-h-screen bg-white z-0">
 
-        <!-- Right Section -->
-        <div class="flex items-center space-x-2 md:space-x-4">
-          <button class="p-1 md:p-2 hover:bg-gray-100 rounded-full">
-            <img src="/icons/search-icon.png" alt="Search Icon" class="h-3 w-3 md:h-4 md:w-4 cursor-pointer">
-          </button>
-          <button class="p-1 md:p-2 hover:bg-gray-100 rounded-full">
-            <img src="/icons/notification-icon.png" alt="Notification-Icon" class="h-3 w-3 md:h-4 md:w-4 cursor-pointer">
-          </button>
-          <img src="/Group 9968.png" alt="Profile-Icon" class="h-5 w-5 md:h-6 md:w-6 cursor-pointer">
-        </div>
-      </div>
-    </div>
-  </header>
 
-  <main class="container mx-auto px-4 pt-16 pb-6">
+  <div class="container mx-auto px-4 pt-16 pb-6">
     <!-- Event Card -->
-    <EventCard {isModalOpen} setIsModalOpen={(value) => isModalOpen = value} />
+    <EventCard />
 
     <!-- Navigation Tabs -->
     <NavigationTabs {navigateTo} />
@@ -153,5 +122,5 @@
         </table>
       </div>
     </div>
-  </main>
+  </div>
 </div>
