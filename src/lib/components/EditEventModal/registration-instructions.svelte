@@ -41,7 +41,7 @@
           <div class="relative w-full">
             <img src={selectedImage} alt="Registration instruction preview" class="w-full h-50 object-cover rounded-lg" />
             <!-- Remove Button (Placed Outside the Label) -->
-            <button on:click={removeImage} class="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 shadow-md hover:bg-red-600">
+            <button on:click={removeImage} class="absolute top-2 right-2 bg-gray-400 text-white rounded-full p-1 shadow-sm hover:bg-gray-600">
               <X size={16} />
             </button>
           </div>

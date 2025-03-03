@@ -28,6 +28,14 @@
       reader.readAsDataURL(input.files[0]);
     }
   }
+
+  function removeImage(imgVar: string) {
+    if (imgVar === "themeImg") themeImgSrc = null;
+    if (imgVar === "logoImg") logoImgSrc = null;
+    if (imgVar === "eventLogoImg") eventLogoImgSrc = null;
+    if (imgVar === "posterImg") posterImgSrc = null;
+    if (imgVar === "backgroundImg") backgroundImgSrc = null;
+  }
 </script>
 
 <div class="pb-4">
@@ -37,7 +45,6 @@
   <hr class="border-t border-gray-300 mb-6">
 
   <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-    <!-- Reusable Image Upload Blocks -->
     {#each [
       { id: "themeInput", label: "Theme", imgSrc: themeImgSrc, bindVar: "themeImg" },
       { id: "logoInput", label: "Logo", imgSrc: logoImgSrc, bindVar: "logoImg" },
@@ -51,6 +58,10 @@
 
       {#if item.imgSrc}
         <img src={item.imgSrc} alt={item.label} class="w-full h-full object-cover">
+        <button class="absolute top-6 right-3 bg-gray-400 text-white shadow-sm rounded-full w-6 h-6 p-2 pb-3 flex items-center justify-center"
+          on:click={(e) => { e.stopPropagation(); removeImage(item.bindVar); }}>
+          &times;
+        </button>
       {:else}
         <p class="text-gray-500 text-sm">Select Image</p>
       {/if}
